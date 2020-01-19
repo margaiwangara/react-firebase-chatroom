@@ -1,22 +1,25 @@
-import React from "react";
+import React, { useCallback } from "react";
+import { withRouter } from "react-router-dom";
 import app from "../base";
 
-function handleSubmit(event) {
-  event.preventDefault();
+function Register({ history }) {
+  const handleSubmit = useCallback(
+    async event => {
+      event.preventDefault();
 
-  const { email, password, username, confirm_password } = event.target.elements;
+      const { email, password } = event.target.elements;
 
-  app
-    .auth()
-    .createUserWithEmailAndPassword(email.value, password.value)
-    .catch(error => {
-      console.log("Error Code: ", error.code);
-      console.log("\n");
-      console.log("Error Message: ", error.message);
-    });
-}
-
-export default function Register() {
+      try {
+        await app
+          .auth()
+          .createUserWithEmailAndPassword(email.value, password.value);
+        history.push("/");
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [history]
+  );
   return (
     <form method="post" onSubmit={handleSubmit}>
       <h4>Register</h4>
@@ -36,3 +39,5 @@ export default function Register() {
     </form>
   );
 }
+
+export default withRouter(Register);
