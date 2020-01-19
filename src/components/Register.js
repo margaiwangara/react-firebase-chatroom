@@ -1,8 +1,24 @@
 import React from "react";
+import app from "../base";
+
+function handleSubmit(event) {
+  event.preventDefault();
+
+  const { email, password, username, confirm_password } = event.target.elements;
+
+  app
+    .auth()
+    .createUserWithEmailAndPassword(email.value, password.value)
+    .catch(error => {
+      console.log("Error Code: ", error.code);
+      console.log("\n");
+      console.log("Error Message: ", error.message);
+    });
+}
 
 export default function Register() {
   return (
-    <form method="post" onSubmit={() => alert("submitted")}>
+    <form method="post" onSubmit={handleSubmit}>
       <h4>Register</h4>
       <label htmlFor="username">Username</label>
       <input type="text" name="username" placeholder="Username" required />
