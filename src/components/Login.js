@@ -24,11 +24,9 @@ function Login({ history }) {
   // redirect if user is found
   const { currentUser } = useContext(AuthContext);
 
-  if (currentUser) {
-    return <Redirect to="/" />;
-  }
-
-  return (
+  return currentUser ? (
+    <Redirect to="/" />
+  ) : (
     <form method="post" onSubmit={handleLogin}>
       <fieldset>
         <legend className="display-5 m-0 p-0 text-center">Login</legend>
@@ -38,7 +36,7 @@ function Login({ history }) {
           <input
             type="email"
             name="email"
-            className="form-control px-2"
+            className="form-control"
             placeholder="Email"
             id="loginEmail"
             autoComplete="false"
@@ -50,7 +48,7 @@ function Login({ history }) {
           <input
             type="password"
             name="password"
-            className="form-control px-2"
+            className="form-control"
             id="loginPassword"
             placeholder="Password"
             autoComplete="false"

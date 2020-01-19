@@ -16,7 +16,7 @@ function App() {
       <Router>
         <div className="container">
           <div className="row">
-            <div className="col-md-6 col-sm-8 col-xs-12 offset-md-3 offset-sm-2 offset-xs-1">
+            <div className="col-md-8 col-xs-12 offset-md-2 offset-xs-1">
               <div className="card mt-5">
                 <div className="card-body">
                   <PrivateRoute exact path="/" component={Home} />
