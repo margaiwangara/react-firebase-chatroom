@@ -12,3 +12,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* Form Simple Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.75;
+  padding: 10px;
+}
+
+form button {
+  margin-top: 5px;
+}
+
+form label {
+  font-size: 0.85rem;
+}
+
+form h4 {
+  margin: 0 0 5px 0;
+  border-bottom: solid 1px #000;
+}
