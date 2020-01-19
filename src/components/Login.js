@@ -2,6 +2,7 @@ import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router-dom";
 import app from "../base";
 import { AuthContext } from "./Auth";
+import { errorHandler } from "../functions";
 
 function Login({ history }) {
   const handleLogin = useCallback(
@@ -14,7 +15,7 @@ function Login({ history }) {
           .signInWithEmailAndPassword(email.value, password.value);
         history.push("/");
       } catch (error) {
-        console.log(error);
+        errorHandler(error);
       }
     },
     [history]
