@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Register() {
   return (
-    <form method="post" onsubmit={() => alert("submitted")}>
+    <form method="post" onSubmit={() => alert("submitted")}>
       <h4>Register</h4>
       <label htmlFor="username">Username</label>
       <input type="text" name="username" placeholder="Username" required />

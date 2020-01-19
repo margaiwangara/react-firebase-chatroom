@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 
 function App() {
+  console.log(process.env.REACT_APP_FIREBASE_API_KEY);
   return (
     <Router>
       <div>

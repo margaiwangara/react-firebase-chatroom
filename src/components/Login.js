@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Login() {
   return (
-    <form method="post" onsubmit={() => alert("submitted")}>
+    <form method="post" onSubmit={() => alert("submitted")}>
       <h4>Login</h4>
       <label htmlFor="email">E-Mail</label>
       <input type="email" name="email" placeholder="E-Mail" required />
