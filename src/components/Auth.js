@@ -4,7 +4,7 @@ import app from "../base";
 export const AuthContext = createContext("auth");
 
 export const AuthProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
     app.auth().onAuthStateChanged(setCurrentUser);
