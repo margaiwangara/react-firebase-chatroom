@@ -42,7 +42,10 @@ export default function Home() {
   useEffect(() => {
     async function fetchMessages() {
       try {
-        const response = await firebase.database().ref("messages");
+        const response = await firebase
+          .database()
+          .ref("messages")
+          .orderByChild("dateSent");
         response.on("value", function(snapshot) {
           setMessages(snapshot.val());
         });
@@ -78,7 +81,10 @@ export default function Home() {
       </div>
       <hr />
 
-      <div className="chat-area bg-light border border-secondary">
+      <div
+        style={{ overflowY: "auto", overflowX: "hidden" }}
+        className="chat-area bg-light d-flex flex-column border border-secondary"
+      >
         {messageDisplay}
       </div>
       <form method="post">

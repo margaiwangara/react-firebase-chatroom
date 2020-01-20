@@ -6,9 +6,9 @@ export default function Message(props) {
 
   return (
     <div className="list-group justify-self-end">
-      <div className="list-group-item border-top-0 border-left-0 border-right-0 flex-column align-items-start">
+      <div className="list-group-item border-bottom-0 border-top border-left-0 border-right-0 flex-column align-items-start">
         <div className="d-flex w-100 flex-wrap justify-content-between">
-          <h5 className="mb-1 text-uppercase text-primary h6">{userId}</h5>
+          <h6 className="mb-1 text-uppercase text-primary">{userId}</h6>
           <small className="text-secondary text-capitalize">
             <Moment format="lll">{date}</Moment>
           </small>
